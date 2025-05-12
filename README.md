@@ -13,5 +13,3 @@
 9. [스크럼](./docs/guide/09.scrum.md)
 10. [Git 브랜치 전략](./docs/guide/10.branch.md)
 11. [PR 실습](./docs/guide/11.practice.md)
-
-
