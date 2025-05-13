@@ -1,6 +1,6 @@
 import '../../../style.css';
 
-import tailwindcss from '../../../style.css';
+import tailwindcss from '../../../style.css?inline';
 
 console.log(tailwindcss);
 
