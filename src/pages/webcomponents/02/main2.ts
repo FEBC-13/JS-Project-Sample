@@ -1,4 +1,4 @@
-import '/src/style.css';
+import '../../../style.css';
 
 const template = document.createElement('template');
 template.innerHTML = `
