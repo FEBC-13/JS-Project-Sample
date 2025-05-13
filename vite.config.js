@@ -2,6 +2,7 @@ import { defineConfig } from 'vite';
 import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
+  base: '/JS-Project-Sample/dist', // 빌드시 GitHub Pages의 레포지토리 이름을 기반으로 경로 설정
   build: {
     rollupOptions: {
       input: {
