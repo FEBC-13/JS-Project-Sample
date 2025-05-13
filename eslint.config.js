@@ -26,6 +26,7 @@ export default defineConfig([
       'no-cond-assign': 'warn', // 조건문에서 변수값 할당식 사용
       'no-redeclare': 1, // 변수 중복 선언
       // indent: 'error', // 들여쓰기 검사(기본 4칸)
+      '@typescript-eslint/no-unused-vars': 'warn',
     },
   },
   {
