@@ -10,6 +10,9 @@ export default defineConfig({
         regist: 'src/pages/todo/regist.html', // 추가 HTML 파일
         info: 'src/pages/todo/info.html', // 추가 HTML 파일
         // 필요한 다른 HTML 파일을 여기에 추가
+        components: 'src/pages/webcomponents/index.html',
+        components01: 'src/pages/webcomponents/01/index.html',
+        components02: 'src/pages/webcomponents/02/index.html',
       },
     },
   },
