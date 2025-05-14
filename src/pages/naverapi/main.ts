@@ -1,20 +1,17 @@
-const clientId = 'nurYihykXbeXcAVh1eYD';
-const clientSecret = 'spjqOUyM9q';
-const keyword = '롯데자이언츠';
+import axios from 'axios';
 
-async function NaverNews() {
-  const URL = `https://openapi.naver.com/v1/search/news.json?query=${keyword}&display=10&start=1&sort=sim`;
+const clientId = 'xxxxxxxxx';
+const clientSecret = 'xxxxxxxxx';
 
-  fetch(URL, {
-    method: 'GET',
+async function naverNews() {
+  const URL = `https://openapi.naver.com/v1/search/news.json?query=hello`;
+
+  axios.get(URL, {
     headers: {
       'X-Naver-Client-Id': clientId,
       'X-Naver-Client-Secret': clientSecret,
     },
-  })
-    .then(response => response.json())
-    .then(data => console.log(data))
-    .catch(error => console.error('Error:', error));
+  });
 }
 
-NaverNews();
+naverNews();
