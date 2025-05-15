@@ -90,7 +90,8 @@ roomsBtn.addEventListener('click', async () => {
  */
 roomInfoBtn.addEventListener('click', async () => {
   // TODO 채팅방 정보 조회 함수 호출
-
+  const roomInfo = await getRoomInfo(enterRoomId.value);
+  console.log(roomInfo);
 });
 
 /**
