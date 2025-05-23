@@ -1,24 +1,61 @@
 import './style.css';
-import typescriptLogo from './typescript.svg';
-import viteLogo from '/vite.svg';
-import { setupCounter } from './counter.ts';
+import teaminfo from './data/teaminfo.js';
+import type { Team } from './types';
 
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://www.typescriptlang.org/" target="_blank">
-      <img src="${typescriptLogo}" class="logo vanilla" alt="TypeScript logo" />
-    </a>
-    <h1>Vite + TypeScript</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite and TypeScript logos to learn more
-    </p>
-  </div>
-`;
+const projectCardsContainer = document.getElementById('project-cards');
 
-setupCounter(document.querySelector<HTMLButtonElement>('#counter')!);
+if (projectCardsContainer) {
+  teaminfo.teams.forEach((team: Team) => {
+    const card = document.createElement('div');
+    card.className = 'col-md-6 col-lg-4';
+    
+    card.innerHTML = `
+      <div class="card ${team.deployUrl ? 'clickable-card' : ''}" data-deploy-url="${team.deployUrl || ''}">
+        <div class="position-relative">
+          <div class="project-header">
+            <h3 class="project-name">${team.projectName}</h3>
+          </div>
+          <span class="team-badge">${team.id}조 - ${team.name}</span>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">${team.projectName}</h5>
+          <p class="project-topic">${team.projectTopic || '프로젝트 설명이 없습니다.'}</p>
+          <div class="team-members mb-3">
+            <div><strong>팀장:</strong> ${team.leader}</div>
+            <div><strong>팀원:</strong> ${team.members.join(', ')}</div>
+          </div>
+          <div class="project-links">
+            ${team.deployUrl ? `
+              <a href="${team.deployUrl}" target="_blank" class="btn btn-outline-secondary btn-sm" onclick="event.stopPropagation();">
+                <i class="bi bi-globe"></i> Demo
+              </a>
+            ` : ''}
+            <a href="${team.githubLink}" target="_blank" class="btn btn-outline-secondary btn-sm" onclick="event.stopPropagation();">
+              <i class="bi bi-github"></i> GitHub
+            </a>
+            <a href="${team.notionLink}" target="_blank" class="btn btn-outline-secondary btn-sm" onclick="event.stopPropagation();">
+              <i class="bi bi-file-earmark-text"></i> Notion
+            </a>
+            <a href="${team.figmaLink}" target="_blank" class="btn btn-outline-secondary btn-sm" onclick="event.stopPropagation();">
+              <i class="bi bi-vector-pen"></i> Figma
+            </a>
+          </div>
+        </div>
+      </div>
+    `;
+    
+    // 카드 클릭 이벤트 추가
+    const cardElement = card.querySelector('.card') as HTMLElement;
+    if (cardElement && team.deployUrl) {
+      cardElement.style.cursor = 'pointer';
+      cardElement.addEventListener('click', (e) => {
+        // 버튼 클릭이 아닌 경우에만 demo 링크로 이동
+        if (!(e.target as HTMLElement).closest('.project-links')) {
+          window.open(team.deployUrl, '_blank');
+        }
+      });
+    }
+    
+    projectCardsContainer.appendChild(card);
+  });
+}

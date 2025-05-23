@@ -174,6 +174,15 @@ export function getRoomInfo(roomId: string): Promise<RoomInfo> {
 }
 
 /**
+ * 모든 방 삭제
+ * @description 생성된 모든 방을 삭제합니다. 개발중에 만들어진 불필요한 방을 정리할때 사용합니다.
+ * 서버에 cleanRooms 이벤트를 발생시켜 모든 방을 삭제합니다.
+ */
+export function cleanRooms() {
+  socket.emit('cleanRooms');
+}
+
+/**
  * 현재 채팅방에서 나가는 함수
  * @description 사용자가 현재 참여 중인 채팅방을 나갈 때 호출되는 함수입니다.
  * 서버에 leaveRoom 이벤트를 발생시켜 채팅방 퇴장을 알립니다.
@@ -200,7 +209,7 @@ export function sendMsg(msg: string): void {
  * @param data - 수신된 채팅 메시지 정보 (발신자 닉네임과 메시지 내용)
  */
 socket.on('message', (data: ChatMessage) => {
-  console.log(`${data.nickName}: ${data.msg}`);
+  console.log(data.nickName, data.msg);
 });
 
 /**

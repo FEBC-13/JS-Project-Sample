@@ -2,7 +2,7 @@
  * 채팅 애플리케이션의 메인 모듈
  * 소켓 통신과 채팅방 관리 기능을 구현
  */
-import { socket, sendMsg, createRoom, joinRoom, leaveRoom, getRooms, getRoomInfo } from "./yongchat.js";
+import { socket, sendMsg, createRoom, joinRoom, leaveRoom, getRooms, getRoomInfo, cleanRooms } from "./yongchat.js";
 import type { ChatMessage, CreateRoomParams, JoinRoomParams } from "./yongchat.js";
 
 /** 사용자 ID 입력 필드 */
@@ -23,6 +23,7 @@ const leaveRoomBtn = document.querySelector<HTMLButtonElement>('#leaveRoomBtn')!
 /** 채팅방 정보 표시 및 조회 관련 DOM 요소들 */
 const connectedRoom = document.querySelector<HTMLSpanElement>('#connectedRoom')!;
 const roomsBtn = document.querySelector<HTMLButtonElement>('#roomsBtn')!;
+const cleanRoomsBtn = document.querySelector<HTMLButtonElement>('#cleanRoomsBtn')!;
 
 /** 메시지 입력 관련 DOM 요소들 */
 const msgInput = document.querySelector<HTMLInputElement>('[name="message"]')!;
@@ -92,6 +93,11 @@ roomInfoBtn.addEventListener('click', async () => {
   // TODO 채팅방 정보 조회 함수 호출
   const roomInfo = await getRoomInfo(enterRoomId.value);
   console.log(roomInfo);
+});
+
+cleanRoomsBtn.addEventListener('click', async () => {
+  // TODO 채팅방 정보 조회 함수 호출
+  cleanRooms();
 });
 
 /**

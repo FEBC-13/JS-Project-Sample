@@ -17,7 +17,8 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "erasableSyntaxOnly": true,
+    // https://velog.io/@bo-like-chicken/erasableSyntaxOnly%EB%A5%BC-%EC%95%8C%EC%95%84%EB%B3%B4%EB%A9%B0-%EB%90%98%EC%A7%9A%EC%96%B4%EB%B3%B8-TypeScript
+    // "erasableSyntaxOnly": true,
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
   },
