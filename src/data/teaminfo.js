@@ -90,7 +90,7 @@ export default {
       leader: "김경민",
       members: ["이선진", "김연호", "김현지"],
       projectName: "WAGLE",
-      projectTopic: "",
+      projectTopic: "모든 뉴스검색과 스크랩이 와글와글!",
       notionLink: "https://www.notion.so/1ed73873401a80fdb202cb6ebf756014?pvs=4",
       githubLink: "https://github.com/FRONTENDBOOTCAMP-13th/JS-08-bibim",
       figmaLink: "https://www.figma.com/design/OeyGQ0o6MVOlnv1AbRkBbj/%ED%8C%94%EC%A1%B0%EB%B9%84%EB%B9%94%EB%A9%B4-%ED%94%BC%EA%B7%B8%EB%A7%88?node-id=0-1&p=f&t=FDYhitT5BlFg7lD2-0",
