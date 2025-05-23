@@ -15,7 +15,7 @@ export default defineConfig({
         components01: 'src/pages/webcomponents/01/index.html',
         components02: 'src/pages/webcomponents/02/index.html',
         naverapi: 'src/pages/naverapi/index.html',
-        cacaomap: 'src/pages/cacaomap/index.html',
+        kakaomap: 'src/pages/kakaomap/index.html',
         cats: 'src/pages/cats/index.html',
         chat: 'src/pages/chat/index.html',
       },
